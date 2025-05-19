@@ -2,121 +2,416 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rentallion | Rent Car</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rentallion | Rent Car</title>
 
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+  <!-- ✅ Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ✅ Boxicons -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- ✅ Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Montserrat:wght@800&display=swap"
+    rel="stylesheet" />
 
-    <!-- ✅ Tailwind via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- ✅ Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
-    <!-- ✅ Flowbite (for optional interactivity) -->
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <style type="text/tailwindcss">
-        @layer utilities {
-        .color1-orange {
-          color: #c84a37;
-        }
+    :root {
+      --color1-orange: #f97316;
+    }
 
-        .bg-color1-orange {
-          background-color: #c84a37;
-        }
+    .color1-orange {
+      color: #c84a37;
+    }
 
-        .bordered {
-          border: 1px solid #e5e7eb;
-        }
+    .bg-color1-orange {
+      background-color: #c84a37;
+    }
 
-        .font1-montserrat {
-          font-family: "Montserrat", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 800;
-          font-style: normal;
-        }
+    .font1-montserrat {
+      font-family: "Montserrat", sans-serif;
+    }
 
-        .font2-merriweather-sans {
-          font-family: "Merriweather Sans", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 400;
-          font-style: normal;
-        }
-      }
-    </style>
+    .font2-merriweather-sans {
+      font-family: "Merriweather Sans", sans-serif;
+    }
+
+    .border-card-hover {
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .border-card-hover:hover {
+      border-color: var(--color1-orange);
+    }
+
+    .bordered {
+      border: 1px solid black;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md font1-montserrat fixed w-full top-0 left-0 z-50 py-5">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center space-x-5">
-                    <img src="assets/img/logo.png" width="100" alt="Rentallion Logo" />
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex space-x-8 text-gray-700 font-semibold text-base items-center">
-                        <a href="#" class="hover:text-color1-orange">Services</a>
-                        <a href="#" class="hover:text-color1-orange">Rentals</a>
-                        <a href="#" class="hover:text-color1-orange">Team</a>
-                        <a href="#" class="hover:text-color1-orange">Contact</a>
-                    </div>
-                </div>
+  <!-- Navbar -->
+  <nav id="navbar"
+    class="bg-white shadow-md font1-montserrat fixed w-full top-0 left-0 z-50 py-5 transition-transform duration-300">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex justify-between items-center h-10">
+        <div class="flex items-center space-x-5">
+          <img src="assets/img/logo.png" width="70" alt="Rentallion Logo" />
+          <div class="hidden md:flex space-x-8 text-gray-700 font-semibold text-base items-center">
+            <a href="#" class="hover:text-color1-orange">Services</a>
+            <a href="#" class="hover:text-color1-orange">Rentals</a>
+            <a href="#" class="hover:text-color1-orange">Team</a>
+            <a href="#" class="hover:text-color1-orange">Contact</a>
+          </div>
+        </div>
 
-                <!-- Contact Info -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="tel:+6289667636327"
-                        class="flex items-center text-sm text-gray-700 hover:text-color1-orange">
-                        <i class="bx bxs-phone text-lg mr-1"></i> (+62) 896 6763 6327
-                    </a>
-                    <a href="#"
-                        class="bg-color1-orange text-white px-4 py-2 rounded hover:opacity-90 text-sm font-medium">CONTACT
-                        US</a>
-                </div>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="tel:+6289667636327" class="flex items-center text-sm text-gray-700 hover:text-color1-orange">
+            <i class="bx bxs-phone text-lg mr-1"></i> (+62) 896 6763 6327
+          </a>
+          <a href="#" class="bg-color1-orange text-white px-4 py-2 rounded hover:opacity-90 text-sm font-medium">
+            CONTACT US
+          </a>
+        </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
-                        <i class="bx bx-menu text-3xl"></i>
-                    </button>
-                </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <i class="bx bx-menu text-3xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-white pt-5">
+      <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Services</a>
+      <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Rentals</a>
+      <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Team</a>
+      <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Contact</a>
+      <hr />
+      <a href="tel:+6289667636327" class="block text-sm text-gray-700 hover:text-color1-orange">
+        <i class="bx bxs-phone mr-1"></i> (62) 896 6763 6327
+      </a>
+      <a href="#"
+        class="block text-center bg-color1-orange text-white py-2 rounded hover:opacity-90 text-sm font-medium">
+        CONTACT US
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative w-full min-h-screen flex items-center justify-center bg-black overflow-hidden">
+    <div class="absolute inset-0 w-full h-full overflow-hidden">
+      <img src="assets/img/mobil.jpg" class="w-full h-full object-cover" alt="Mobil" />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+    <div class="relative z-20 text-center px-4 py-16 font1-montserrat">
+      <h2 class="text-yellow-400 text-lg font-bold tracking-widest mb-2">
+        Rentallion
+      </h2>
+      <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
+        RENT CARS COMPANY
+      </h1>
+      <p class="text-gray-200 text-base sm:text-lg max-w-md mx-auto font2-merriweather-sans">
+        Providing various types of car rentals since 2015
+      </p>
+      <a href="#"
+        class="inline-block mt-8 px-6 py-3 rounded-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold transition-colors duration-300">
+        Rent Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Description Section -->
+  <section class="py-20 px-8 text-center">
+    <p class="font2-merriweather-sans text-lg text-gray-700 tracking-wider leading-relaxed max-w-2xl mx-auto">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit cupiditate
+      voluptatum delectus culpa voluptate placeat temporibus quidem facere
+      aperiam hic et iusto alias repellat reprehenderit obcaecati voluptates
+      perferendis, quisquam ut.
+    </p>
+    <div class="mt-6">
+      <i class="bx bx-car text-6xl color1-orange"></i>
+    </div>
+  </section>
+
+  <!-- our story -->
+  <section class="py-20 px-6 md:px-16 bg-white font2-merriweather-sans">
+    <div
+      class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center space-y-10 md:space-y-0 md:space-x-12">
+      <!-- Gambar -->
+      <div class="w-full md:w-1/2">
+        <img src="assets/img/mobil2.jpg" alt="Mobil" class="w-full rounded shadow-md" />
+      </div>
+
+      <!-- Konten Teks -->
+      <div class="w-full md:w-1/2 text-center md:text-left">
+        <p class="text-xl text-black font-semibold mb-2 font1-montserrat"><span class="color1-orange">|</span> Our Story
+        </p>
+        <h2 class="text-3xl md:text-4xl font-semibold leading-snug mb-4 font1-montserrat">
+          Our services always prioritize customer satisfaction
+        </h2>
+
+        <!-- Tombol Tabs -->
+        <div class="flex justify-around space-x-4 mb-4 bg-gray-200 rounded py-2 px-4">
+          <button onclick="showContent('content1', this)"
+            class="tab-button bg-color1-orange text-xs py-2 px-4 font-semibold text-white rounded transition md:text-md">
+            Who Are We
+          </button>
+          <button onclick="showContent('content2', this)"
+            class="tab-button bg-white text-xs py-2 px-4 font-semibold text-black rounded transition md:text-md">
+            Our Vision
+          </button>
+          <button onclick="showContent('content3', this)"
+            class="tab-button bg-white text-xs py-2 px-4 font-semibold text-black rounded transition md:text-md">
+            Our History
+          </button>
+        </div>
+
+        <!-- Isi Konten -->
+        <div id="content1" class="tab-content transition-all duration-500 ease-in-out opacity-100 scale-100">
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Adipisci, sint, inventore impedit, ipsum numquam quasi expedita
+            consectetur recusandae eaque maiores commodi aspernatur!
+          </p>
+        </div>
+        <div id="content2" class="tab-content hidden opacity-0 scale-95 transition-all duration-500 ease-in-out">
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil repudiandae labore dolor at molestiae maxime
+            pariatur itaque! Obcaecati numquam doloribus magnam labore sed perferendis hic ipsam et incidunt dolores,
+            eum vero repellat, totam qui excepturi temporibus consectetur sapiente accusantium nam! Iure nobis fugiat,
+            eveniet deserunt ullam repellat sequi harum sed!
+          </p>
+        </div>
+        <div id="content3" class="tab-content hidden opacity-0 scale-95 transition-all duration-500 ease-in-out">
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti accusamus laudantium quaerat error alias
+            facilis debitis dolores harum minus reiciendis quis vero mollitia, ullam, obcaecati minima aliquid porro rem
+            odit repellat adipisci cumque pariatur soluta! Vitae dolore eaque sequi voluptatum hic eius? Dolorum esse
+            quasi, quod facilis rerum dignissimos quia? Placeat fugiat dignissimos qui, in quod facere perspiciatis
+            recusandae, itaque sint amet sunt praesentium provident, delectus expedita quaerat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unique Selling Point Section -->
+  <section class="py-20 px-6 md:px-16 font2-merriweather-sans" id="services">
+    <p class="font-bold text-2xl text-center mb-10 font1-montserrat"><span class="color1-orange">|</span> Our Best
+      Services</p>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div
+        class="border-card-hover rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-cog text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Maintenable</h2>
+        <p class="text-gray-600 text-sm">The car always gets maintenance and ready to go!</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="border-card-hover rounded-lg border rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-mobile text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Book Online Fastly</h2>
+        <p class="text-gray-600 text-sm">Booking cepat dan mudah melalui website atau WhatsApp</p>
+        <p class="text-gray-600 text-sm">Book Fast instanly via our Website or WhatsApp</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="border-card-hover rounded-lg border rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-car text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Support Free Pick Up</h2>
+        <p class="text-gray-600 text-sm">Cars can be delivered and picked up directly to your location</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="border-card-hover rounded-lg border rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-shield-alt-2 text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Include Insurance</h2>
+        <p class="text-gray-600 text-sm">All units are covered by insurance for your comfort and safety</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div
+        class="border-card-hover rounded-lg border rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-time text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">24H Services</h2>
+        <p class="text-gray-600 text-sm">Our service is available 24 hours a day, even in emergencies</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div
+        class="border-card-hover rounded-lg border rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out p-7 text-left border-2 border-gray-300">
+        <i class="bx bx-user-circle text-6xl text-color1-orange mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Professional Drivers</h2>
+        <p class="text-gray-600 text-sm">Supported by professional, friendly drivers who understand local routes</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-color1-orange py-20 px-6 text-white text-center flex justify-center">
+    <div class="max-w-2xl">
+      <h2 class="font1-montserrat text-3xl mb-6">We Always Give Our Best Services</h2>
+      <p class="font2-merriweather-sans mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ad,
+        placeat consectetur, accusantium dolorem
+        sapiente dicta doloremque, ex nemo quo voluptatibus! Non error provident laborum quidem consequuntur possimus
+        inventore illum, nihil ipsa. Officia perspiciatis vero nesciunt dolores.
+      </p>
+      <a href="#contact">
+        <button class="rounded-lg border border-white py-2 px-6 font2-merriweather-sans">Get Started</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- get in touch -->
+  <section class="py-12 bg-gray-50 mt-24 font2-merriweather-sans" id="contact">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Left: Contact Info -->
+        <div class="md:w-1/2 bg-[#c84a37] text-white flex flex-col justify-center p-8">
+          <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+          <ul class="space-y-5 text-base">
+            <li class="flex items-start gap-3">
+              <i class='bx bx-map text-2xl'></i>
+              <span>Jl. Hasanudin gang Swadaya no 04 RT 05</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class='bx bx-phone text-2xl'></i>
+              <span>089650710460</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class='bx bx-envelope text-2xl'></i>
+              <span>Rentallion@mail.com</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class='bx bxl-google text-2xl'></i>
+              <a href="https://maps.google.com" target="_blank" class="underline text-white hover:text-gray-200">Google
+                Maps</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Right: Contact Form -->
+        <div class="md:w-1/2 p-8">
+          <h2 class="text-2xl font-bold text-[#c84a37] mb-6 text-center md:text-left">Get in Touch</h2>
+          <form class="space-y-5">
+            <div>
+              <label for="name" class="block mb-1 font-medium">Full Name</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c84a37]"><i class='bx bx-user'></i></span>
+                <input type="text" id="name" name="name" required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#c84a37] bg-gray-50" />
+              </div>
             </div>
+            <div>
+              <label for="email" class="block mb-1 font-medium">Email</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c84a37]"><i
+                    class='bx bx-envelope'></i></span>
+                <input type="email" id="email" name="email" required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#c84a37] bg-gray-50" />
+              </div>
+            </div>
+            <div>
+              <label for="phone" class="block mb-1 font-medium">Phone Number</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c84a37]"><i class='bx bx-phone'></i></span>
+                <input type="tel" id="phone" name="phone" required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#c84a37] bg-gray-50" />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block mb-1 font-medium">Subject</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c84a37]"><i class='bx bx-tag'></i></span>
+                <input type="text" id="subject" name="subject" required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#c84a37] bg-gray-50" />
+              </div>
+            </div>
+            <div>
+              <label for="message" class="block mb-1 font-medium">Your Message</label>
+              <div class="relative">
+                <span class="absolute left-3 top-3 text-[#c84a37]"><i class='bx bx-message-dots'></i></span>
+                <textarea id="message" name="message" rows="4" required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#c84a37] bg-gray-50 resize-none"></textarea>
+              </div>
+            </div>
+            <button type="submit"
+              class="w-full bg-[#c84a37] text-white font-semibold py-2 rounded hover:bg-[#a53b2a] transition">Send
+              Message</button>
+          </form>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-white pt-5">
-            <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Services</a>
-            <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Rentals</a>
-            <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Team</a>
-            <a href="#" class="block text-gray-700 hover:text-color1-orange font-medium">Contact</a>
-            <hr />
-            <a href="tel:+6289667636327" class="block text-sm text-gray-700 hover:text-color1-orange">
-                <i class="bx bxs-phone mr-1"></i> (62) 896 6763 6327
-            </a>
-            <a href="#"
-                class="block text-center bg-color1-orange text-white py-2 rounded hover:opacity-90 text-sm font-medium">CONTACT
-                US</a>
-        </div>
-    </nav>
 
-    <main class="h-[500px]"></main>
+  <!-- Script: Mobile Menu & Scroll Hide Navbar -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
 
-    <!-- Script for toggling mobile menu -->
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
 
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
+    window.addEventListener("scroll", () => {
+      const currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        navbar.classList.add("-translate-y-full");
+      } else {
+        navbar.classList.remove("-translate-y-full");
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    function showContent(contentId, button) {
+      // Semua konten disembunyikan
+      document.querySelectorAll(".tab-content").forEach((el) => {
+        el.classList.add("hidden");
+        el.classList.remove("opacity-100", "scale-100");
+        el.classList.add("opacity-0", "scale-95");
+      });
+
+      // Reset tombol
+      document.querySelectorAll(".tab-button").forEach((btn) => {
+        btn.classList.remove("bg-color1-orange", "text-white");
+        btn.classList.add("bg-white", "text-black");
+      });
+
+      // Tampilkan konten yang diklik
+      const selected = document.getElementById(contentId);
+      selected.classList.remove("hidden");
+
+      // Tambahkan animasi transisi
+      setTimeout(() => {
+        selected.classList.remove("opacity-0", "scale-95");
+        selected.classList.add("opacity-100", "scale-100");
+      }, 10); // Sedikit delay agar transisi jalan
+
+      // Aktifkan tombol
+      button.classList.remove("bg-white", "text-black");
+      button.classList.add("bg-color1-orange", "text-white");
+    }
+  </script>
 </body>
 
 </html>
